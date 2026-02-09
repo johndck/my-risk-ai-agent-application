@@ -1,0 +1,26 @@
+{
+  "name": "ai-risk-application",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/johndck/my-risk-ai-agent-application.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/johndck/my-risk-ai-agent-application/issues"
+  },
+  "homepage": "https://github.com/johndck/my-risk-ai-agent-application#readme",
+  "dependencies": {
+    "@ai-sdk/google": "^3.0.23",
+    "ai": "^6.0.78",
+    "zod": "^4.3.6"
+  }
+}

@@ -3,6 +3,7 @@ import 'dotenv/config';
 import { GoogleGenAI, ThinkingLevel } from '@google/genai';
 import { agentInstructions } from './instructions.js';
 import { RiskDefinitionSchema } from './schema.js';
+import formatRiskStatement from './formatRiskStatement.js';
 
 // 1. Initialize the library with your API Key
 const ai = new GoogleGenAI({
@@ -19,6 +20,9 @@ const ai = new GoogleGenAI({
 // START THE CLOCK HERE - This captures the moment the request leaves your machine
         const startRequestTime = Date.now();
 
+ // NEW: Create a variable to hold the full JSON string
+        let fullResponseText = "";       
+
   
       // 2. Call the model
       const responseStream = await ai.models.generateContentStream({
@@ -27,7 +31,7 @@ const ai = new GoogleGenAI({
         contents: [
           {
             role: "user",
-            parts: [{ text: "I am worried that we will never be able to install our 2 internet lines into the building in time and we wont be able to offer resilient high speed internet access" }]
+            parts: [{ text: "Write a risk statement for this concern - Tech delivery is getting squeezed into the end because the programme is focused on fitting out the building and don’t realise that the technology delivery needs to be integrated. If we don’t integrate at this stage obviously technology delivery needs more than 4 weeks to deliver and there is not enough time available post fitting out the building to successfully deliver all the technology to the required standard." }]
           }
         ],
         config: {
@@ -62,6 +66,7 @@ try {
         const text = chunk.text || (typeof chunk.text === 'function' ? chunk.text() : '');
         if (text) {
           process.stdout.write(text);
+          fullResponseText += text;
         }
         if (chunk.usageMetadata){
           finalStats=chunk.usageMetadata
@@ -79,6 +84,27 @@ try {
 
       const endToEndTime = (Date.now() - startRequestTime) / 1000;
         console.log(`\n\n\x1b[32m✔ Completed in ${endToEndTime.toFixed(2)}s\x1b[0m`);
+
+
+        try {
+          // 1. Convert the accumulated string into a JavaScript Object
+          const riskData = JSON.parse(fullResponseText);
+    
+          // 2. Call the formatter function
+          const finalStatement = formatRiskStatement(riskData);
+    
+          // 3. Output the final result
+          console.log("\n--- FORMULATED RISK STATEMENT ---");
+          console.log(finalStatement);
+          console.log("---------------------------------\n");
+    
+        } catch (parseError) {
+          console.error("\n❌ Failed to parse JSON or format statement:", parseError.message);
+        }
+
+
+
+
 
 // 3. Log stats from the captured variable
 if (finalStats) {

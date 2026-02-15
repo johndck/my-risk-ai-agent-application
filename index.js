@@ -12,7 +12,7 @@ const ai = new GoogleGenAI({
       // 2. Call the model
       const response = await ai.models.generateContentStream({
         model: 'gemini-3-flash-preview',
-        contents:'explain the for of loop in javascript?.'
+        contents:'how many press ups should I do today before my run?.'
       });
   
       // 3. Print the result
@@ -26,7 +26,7 @@ try {
 // 1. Add a newline to move the cursor below the AI's response
 console.log('\n');
 
-console.log("Stream completed with the new code");
+console.log('\n\x1b[32m✔ Stream completed successfully\x1b[0m');
     }catch (error) {
       console.error('The stream was interrupted:', error);
     }

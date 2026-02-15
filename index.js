@@ -17,9 +17,18 @@ const ai = new GoogleGenAI({
   
       // 3. Print the result
 
-      for await (const chunk of response) {
+
+try {
+    for await (const chunk of response) {
         console.log(chunk.text);
       }
+
+console.log("Stream completed");
+    }catch (error) {
+      console.error('The stream was interrupted:', error);
+    }
+
+
     } catch (error) {
       console.error('Error calling Gemini:', error);
     }

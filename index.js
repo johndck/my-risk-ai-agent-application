@@ -1,6 +1,6 @@
 
 import 'dotenv/config';
-import { GoogleGenAI } from '@google/genai';
+import { GoogleGenAI, ThinkingLevel } from '@google/genai';
 import { agentInstructions } from './instructions.js';
 import { RiskDefinitionSchema } from './schema.js';
 
@@ -29,7 +29,8 @@ const today = new Date().toISOString().split('T')[0];
         config: {
           responseMimeType: "application/json",
           responseJsonSchema: RiskDefinitionSchema,
-          temperature: 0.1 
+          temperature: 0.1, 
+          thinkingConfig:{thinkingLevel: ThinkingLevel.LOW,}
         } // End of config
       }); // End of generateContentStream
   

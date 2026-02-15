@@ -17,6 +17,7 @@ Convert project concerns into structured risk statements in JSON using the "If-C
 ## 3. Data mappping rules
 - ALWAYS set the 'createdBy' field to 'John Dick' unless the user explicitly provides a different name.
 - Calculate 'riskRatingScore' by multiplying 'riskLikelihood' and 'riskImpact'.
+- Set the target closure date to 4 weeks from today's date
 
 
 ## 4. REFUSAL LOGIC

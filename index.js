@@ -10,13 +10,16 @@ const ai = new GoogleGenAI({
   async function main() {
     try {
       // 2. Call the model
-      const response = await ai.models.generateContent({
+      const response = await ai.models.generateContentStream({
         model: 'gemini-3-flash-preview',
-        contents: 'Why is the sky blue?',
+        contents:'How many free tier calls on gemini-3-flash-preview? Answer in 3 sentences max.'
       });
   
       // 3. Print the result
-      console.log(response.text);
+
+      for await (const chunk of response) {
+        console.log(chunk.text);
+      }
     } catch (error) {
       console.error('Error calling Gemini:', error);
     }

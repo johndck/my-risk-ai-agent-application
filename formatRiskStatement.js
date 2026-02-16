@@ -6,3 +6,5 @@ function formatRiskStatement(data) {
   }
 
   export default formatRiskStatement
+
+  

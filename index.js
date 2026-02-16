@@ -4,6 +4,7 @@ import { GoogleGenAI, ThinkingLevel } from '@google/genai';
 import { agentInstructions } from './instructions.js';
 import { RiskDefinitionSchema } from './schema.js';
 import formatRiskStatement from './formatRiskStatement.js';
+import writeRiskToFile from './writeRisktoFile.js';
 
 // 1. Initialize the library with your API Key
 const ai = new GoogleGenAI({
@@ -97,11 +98,18 @@ try {
           console.log("\n--- FORMULATED RISK STATEMENT ---");
           console.log(finalStatement);
           console.log("---------------------------------\n");
+
+
+          // 4. Write to file
+         
+          const filename = await writeRiskToFile(finalStatement, riskData);
+          console.log(`\n✔ Risk statement saved to: ${filename}`); 
+
+
     
         } catch (parseError) {
           console.error("\n❌ Failed to parse JSON or format statement:", parseError.message);
         }
-
 
 
 

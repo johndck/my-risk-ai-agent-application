@@ -12,6 +12,17 @@ const ai = new GoogleGenAI({
   });
 
   async function main() {
+
+    const cliPrompt = process.argv.slice(2).join(" ");
+
+    if (!cliPrompt) {
+      console.error("\x1b[31mError: Please provide a concern to analyze.\x1b[0m");
+      console.log("Usage: node index.js \"Your concern goes here\"");
+      process.exit(1);
+    }
+
+
+
     try {
 
 // 1. Current Date for the AI's context (helps with targetClosureDate)
@@ -32,7 +43,7 @@ const ai = new GoogleGenAI({
         contents: [
           {
             role: "user",
-            parts: [{ text: "Write a risk statement for this concern - Tech delivery is getting squeezed into the end because the programme is focused on fitting out the building and don’t realise that the technology delivery needs to be integrated. If we don’t integrate at this stage obviously technology delivery needs more than 4 weeks to deliver and there is not enough time available post fitting out the building to successfully deliver all the technology to the required standard." }]
+            parts: [{ text: cliPrompt }]
           }
         ],
         config: {

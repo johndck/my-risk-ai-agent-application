@@ -2,8 +2,12 @@
 .DS_Store
 .AppleDouble
 .LSOverride
-.txt
+
 risk-statements/
+
+# text files
+*.txt
+
 
 # Thumbnails
 ._*

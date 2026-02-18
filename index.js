@@ -59,7 +59,7 @@ const ai = new GoogleGenAI({
       let finalStats = null;
 
       // 3. Print the result
-      console.log("Request sent. Waiting for stream...\n");
+      console.log("Request sent to the Gemini SDK. Waiting for stream...\n");
 
 
 try {
@@ -106,7 +106,7 @@ try {
           const finalStatement = formatRiskStatement(riskData);
     
           // 3. Output the final result
-          console.log("\n--- FORMULATED RISK STATEMENT ---");
+          console.log("\n--- Gemini formulated RISK STATEMENT ---");
           console.log(finalStatement);
           console.log("---------------------------------\n");
 

@@ -20,6 +20,7 @@
   "homepage": "https://github.com/johndck/my-risk-ai-agent-application#readme",
   "dependencies": {
     "@ai-sdk/google": "^3.0.30",
+    "@ai-sdk/xai": "^3.0.57",
     "@google/genai": "^1.41.0",
     "ai": "^6.0.97",
     "dotenv": "^17.3.0",

@@ -10,7 +10,7 @@ Convert project concerns into a professional, structured JSON risk object that s
 - **Eliminate Prefixes:** Do not use "Risk of..." or "There is a risk that...". Start immediately with the Cause.
 - **Causal Clarity:** Ensure 'if_Cause' states what resource or event is at play, what it is needed for, and when.
 - **The "So What":** The 'resultingIn_Consequence' must articulate the impact on the end of the initiative, specifically mentioning date delays or milestone failures.
-- **Actionable Mitigations:** Suggest actions that gain commitment for resources or establish a back-up plan.
+- **Actionable Mitigations:** Suggest actions that gain commitment for resources or establish a back-up plan. Number each of the actions so we can track.
 
 # DATA DICTIONARY & MAPPING
 - **riskTitle**: A concise, 5-8 word title for the risk.

@@ -38,7 +38,7 @@ const ai = new GoogleGenAI({
   
       // 2. Call the model
       const responseStream = await ai.models.generateContentStream({
-        model: 'gemini-3-flash-preview',
+        model: 'gemini-2.5-flash',
         systemInstruction: `${agentInstructions}\n\nToday's date is ${today}.`,
         contents: [
           {
@@ -49,9 +49,9 @@ const ai = new GoogleGenAI({
         config: {
           responseMimeType: "application/json",
           responseJsonSchema: RiskDefinitionSchema,
-          maxOutputTokens: 4820,
+          maxOutputTokens: 2000,
           temperature: 0.1, 
-          thinkingConfig: { thinkingLevel: ThinkingLevel.MINIMAL },
+          thinkingConfig: { thinkingBudget:0 },
         } // End of config
       }); // End of generateContentStream
   

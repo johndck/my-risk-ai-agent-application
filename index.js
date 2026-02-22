@@ -71,7 +71,7 @@ const modelsToCompare = [
     // We use the original index to identify which model failed
     const modelName = modelsToCompare[index].name;
     console.log(`\n❌ --- Model: ${modelName} FAILED ---`);
-    console.error(`Reason: ${outcome.reason.message}`);
+    console.error(`Reason: ${outcome.reason?.message || outcome.reason || 'Unknown error'}`);
   }
 });
 

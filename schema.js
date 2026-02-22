@@ -23,7 +23,11 @@ export const RiskDefinitionSchema = {
     riskImpact: { type: "integer", minimum: 1, maximum: 4 },
     riskRatingScore: { type: "integer", description: "Likelihood * Impact" },
     targetClosureDate: { type: "string", description: "YYYY-MM-DD" },
-    mitigatingActions: { type: "string" },
+    mitigatingActions: { 
+      type: "array", 
+      items: { type: "string" },
+      description: "A list of unique, numbered tactical steps."
+    },
     latestUpdate: { type: "string" }
   },
   required: [

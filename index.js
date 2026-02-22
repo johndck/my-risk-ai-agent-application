@@ -26,7 +26,7 @@ async function main() {
 const today = new Date().toISOString().split('T')[0];
 const finalInstructions = agentInstructions.replace('{{TODAY_DATE}}', today);
 
-const promptInput = "Given the MCR handover has been delayed, the downstream tasks for building the network might not be able complete in the time.";
+const promptInput = "I am concerned that the delay of the delivery of the MCR room on 13 March. If IT is not given more delivery time we will not be able to deliver everything ready for go-live. We need more time as a result of the MCR room being delayed.";
 
 
 const modelsToCompare = [

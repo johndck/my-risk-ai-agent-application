@@ -10,20 +10,26 @@ export async function evaluateAndSynthesize(outputs, originalPrompt) {
     const finalEvaluatorInstructions = evaluatorInstructions.replace('{{TODAY_DATE}}', today);
 
     const { object } = await generateObject({
-        model: google('gemini-2.5-flash'), // Higher reasoning model recommended here
+        model: google('gemini-2.0-flash'), 
         system: finalEvaluatorInstructions,
         schema: jsonSchema(RiskDefinitionSchema),
         prompt: `
             USER CONCERN: "${originalPrompt}"
             
-            DRAFT 1 (Model: ${outputs[0]?.id || 'N/A'}): 
-            ${JSON.stringify(outputs[0]?.data || {}, null, 2)}
+            I have received ${outputs.length} draft risk assessments. 
+            Your task is to act as the final arbiter:
+            
+            ${outputs.map((output, index) => `
+            DRAFT ${index + 1} (Source: ${output.id}):
+            ${JSON.stringify(output.data, null, 2)}
+            `).join('\n---\n')}
 
-            DRAFT 2 (Model: ${outputs[1]?.id || 'N/A'}): 
-            ${JSON.stringify(outputs[1]?.data || {}, null, 2)}
-
-            Analyze both drafts. Synthesize the final, authoritative risk object, 
-            applying overrides where necessary.
+            ### FINAL TASK:
+            1. Resolve any contradictions between the drafts by referring back to the original USER CONCERN.
+            2. Combine the best technical observations from all drafts into a single, high-quality risk assessment.
+            3. Apply your override authority to set the final risk scores if the drafts provide conflicting or illogical ratings.
+            
+            Synthesize the final authoritative risk object now.
         `,
     });
 

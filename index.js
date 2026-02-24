@@ -49,31 +49,30 @@ const modelsToCompare = [
         prompt: promptInput,
       });
 
-    return { id: model.name, object };
+    return { id: model.name, date: object };
     });
 
     // [2] Wait for all promises to settle.
 
     const results = await Promise.allSettled(requests);
 
-    // [2] Iterate through the outcomes
-        results.forEach((outcome, index) => {
-  // Each 'outcome' has a 'status' property: "fulfilled" or "rejected"
-  
-        if (outcome.status === 'fulfilled') {
-    // Access the data we returned in the .map() via outcome.value
-        const { id, object } = outcome.value;
-        console.log(`\n✅ --- Model: ${id} ---`);
-        console.log(object);
 
-  } else {
-    // If it failed, the error is in outcome.reason
-    // We use the original index to identify which model failed
-    const modelName = modelsToCompare[index].name;
-    console.log(`\n❌ --- Model: ${modelName} FAILED ---`);
-    console.error(`Reason: ${outcome.reason?.message || outcome.reason || 'Unknown error'}`);
-  }
-});
+    // [2] Extract only the successful objects into an array
+    const successfulOutputs = results
+      .filter(result => result.status === 'fulfilled')
+      .map(result => result.value);
+
+// [3] Pass the array of objects to your external function
+    if (successfulOutputs.length > 0) {
+    console.log(`\nSending ${successfulOutputs.length} results to evaluation...`);
+    
+    
+    const evaluation = await evaluateResults(successfulOutputs);
+    
+    console.log("Evaluation Result:", evaluation);
+      } else {
+        console.error("No successful results to evaluate.");
+        }
 
   } catch (error) {
     console.error("❌ execution error:", error.message);

@@ -1,9 +1,13 @@
 import { generateObject, jsonSchema } from 'ai';
 import { createGoogleGenerativeAI } from '@ai-sdk/google';
 import { RiskDefinitionSchema } from './schema.js';
-import evaluatorInstructions from './instructions.js';
+import evaluatorInstructions from './evalulatorInstructions.js';
+import 'dotenv/config';
 
 const google = createGoogleGenerativeAI({ apiKey: process.env.GEMINI_API_KEY });
+
+
+
 
 export async function evaluateAndSynthesize(outputs, originalPrompt) {
     const today = new Date().toISOString().split('T')[0];

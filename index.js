@@ -3,6 +3,7 @@ import { createGoogleGenerativeAI } from '@ai-sdk/google';
 import { createXai } from '@ai-sdk/xai'; // [1] Added xAI provider import
 import { agentInstructions } from './instructions.js';
 import { RiskDefinitionSchema } from './schema.js';
+import { evaluateAndSynthesize } from './evaluator.js';
 import 'dotenv/config';
 
 
@@ -49,7 +50,7 @@ const modelsToCompare = [
         prompt: promptInput,
       });
 
-    return { id: model.name, date: object };
+    return { id: model.name, data: object };
     });
 
     // [2] Wait for all promises to settle.
@@ -67,9 +68,10 @@ const modelsToCompare = [
     console.log(`\nSending ${successfulOutputs.length} results to evaluation...`);
     
     
-    const evaluation = await evaluateResults(successfulOutputs);
-    
-    console.log("Evaluation Result:", evaluation);
+    const evaluation = await evaluateAndSynthesize(successfulOutputs, promptInput);
+
+    console.log("\n🏆 FINAL SYNTHESIZED RISK:");
+    console.log(JSON.stringify(evaluation, null, 2)); // Pretty-prints the whole object
       } else {
         console.error("No successful results to evaluate.");
         }

@@ -1,7 +1,7 @@
 import { generateObject, jsonSchema } from 'ai';
 import { createGoogleGenerativeAI } from '@ai-sdk/google';
 import { RiskDefinitionSchema } from './schema.js';
-import { evaluatorInstructions } from './instructions.js';
+import evaluatorInstructions from './instructions.js';
 
 const google = createGoogleGenerativeAI({ apiKey: process.env.GEMINI_API_KEY });
 

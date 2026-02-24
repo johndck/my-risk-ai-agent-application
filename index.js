@@ -57,6 +57,20 @@ const modelsToCompare = [
 
     const results = await Promise.allSettled(requests);
 
+    // [3] Audit the results: Log successes and failures
+        results.forEach((outcome, index) => {
+        const modelName = modelsToCompare[index].name;
+  
+        if (outcome.status === 'fulfilled') {
+          console.log(`✅ Model Success: ${modelName}`);
+        } else {
+      // This tells you exactly why a specific model didn't make it to the evaluator
+        console.error(`❌ Model Failed: ${modelName}`);
+      console.error(`   Reason: ${outcome.reason?.message || outcome.reason}`);
+        }
+      });
+
+
 
     // [2] Extract only the successful objects into an array
     const successfulOutputs = results

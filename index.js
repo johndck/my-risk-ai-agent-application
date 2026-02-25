@@ -27,7 +27,7 @@ async function main() {
 const today = new Date().toISOString().split('T')[0];
 const finalInstructions = agentInstructions.replace('{{TODAY_DATE}}', today);
 
-const promptInput = "I am concerned that the delay of the delivery of the MCR room on 13 March. If IT is not given more delivery time we will not be able to deliver everything ready for go-live. We need more time as a result of the MCR room being delayed.";
+const promptInput = "We have shared programme milestones to deliver with the fit out programme but nobody has validated and proved we can meet the dates. This means we are all signing up to dates we have no idea we can meet and there a number dependencies that are hidden which could result in significant delays";
 
 
 const modelsToCompare = [

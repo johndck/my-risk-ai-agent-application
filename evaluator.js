@@ -14,7 +14,7 @@ export async function evaluateAndSynthesize(outputs, originalPrompt) {
     const finalEvaluatorInstructions = evaluatorInstructions.replace('{{TODAY_DATE}}', today);
 
     const { object } = await generateObject({
-        model: google('gemini-2.0-flash'), 
+        model: google('gemini-2.5-flash'), 
         system: finalEvaluatorInstructions,
         schema: jsonSchema(RiskDefinitionSchema),
         prompt: `

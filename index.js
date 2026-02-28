@@ -27,7 +27,7 @@ async function main() {
 const today = new Date().toISOString().split('T')[0];
 const finalInstructions = agentInstructions.replace('{{TODAY_DATE}}', today);
 
-const promptInput = "if we cannot complete signing of the Wayleave until end of March then Expo-E are unlikely to secure an installation date until May resulting in a delay to the end of May go-live date  ";
+const promptInput = "if we don't get visibility and confirmation across all the milestone & dependencies then it highly likely that that are missing assumptions and inconsistencies resulting in delays and rework, negatively impacting the go-live date in May";
 
 
 const modelsToCompare = [

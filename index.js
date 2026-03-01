@@ -29,7 +29,7 @@ async function main() {
 const today = new Date().toISOString().split('T')[0];
 const finalInstructions = agentInstructions.replace('{{TODAY_DATE}}', today);
 
-const promptInput = "if we don't get visibility and confirmation across all the milestone & dependencies then it highly likely that that are missing assumptions and inconsistencies resulting in delays and rework, negatively impacting the go-live date in May";
+const promptInput = "if technology is continued to be viewed as an after-thought then we will continue to work in silos and ineffectively results in re-work and delays";
 
 
 const modelsToCompare = [
@@ -52,6 +52,9 @@ const modelsToCompare = [
         prompt: promptInput,
       });
 
+    console.log(`\n--- Model: ${model.name} ---`);
+    console.log(JSON.stringify(object, null, 2));
+    console.log(object);
     return { id: model.name, data: object };
     });
 

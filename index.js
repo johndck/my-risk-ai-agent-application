@@ -6,6 +6,7 @@ import { RiskDefinitionSchema } from './schema.js';
 import { evaluateAndSynthesize } from './evaluator.js';
 import 'dotenv/config';
 import formatRiskStatement from './formatRiskStatement.js';
+import sendWelcomeEmail from './resend.js';
 
 
 
@@ -93,10 +94,23 @@ const modelsToCompare = [
     console.log(JSON.stringify(evaluation, null, 2)); // Pretty-prints the whole object
 
     console.log("\n--- FORMULATED RISK STATEMENT ---");
-    console.log(formatRiskStatement(evaluation));
+    const riskData = formatRiskStatement(evaluation);
+    console.log(riskData);
     console.log("---------------------------------\n");
 
+    try {
+      console.log("📤 Sending risk report via Resend...");
+      const { data, error } = await sendWelcomeEmail(riskData);
     
+      if (error) {
+        throw new Error(error.message);
+      }
+    
+      console.log(`✅ Email sent! Message ID: ${data.id}`);
+    } catch (emailError) {
+      console.error("⚠️ Failed to send email:", emailError.message);
+    }
+
       } else {
         console.error("No successful results to evaluate.");
         }

@@ -5,6 +5,8 @@ import { agentInstructions } from './instructions.js';
 import { RiskDefinitionSchema } from './schema.js';
 import { evaluateAndSynthesize } from './evaluator.js';
 import 'dotenv/config';
+import formatRiskStatement from './formatRiskStatement.js';
+
 
 
 // Manually defining the provider and telling it exactly where the key is
@@ -86,6 +88,12 @@ const modelsToCompare = [
 
     console.log("\n🏆 FINAL SYNTHESIZED RISK:");
     console.log(JSON.stringify(evaluation, null, 2)); // Pretty-prints the whole object
+
+    console.log("\n--- FORMULATED RISK STATEMENT ---");
+    console.log(formatRiskStatement(evaluation));
+    console.log("---------------------------------\n");
+
+    
       } else {
         console.error("No successful results to evaluate.");
         }

@@ -1,9 +1,11 @@
-function Test() {
+function Post({ postdata: { username, content, likes, isVerified } }) {
     return (
-        <div>
-            <h1>Test</h1>
-        </div>
-    )
-}
+      <div>
+        <p>{`${username} - ${content}`}</p>
+        <p>{`Likes: ${likes}`}</p>
+        <p>{`Verified: ${isVerified ? 'Yes' : 'No'}`}</p>
+      </div>
+    );
+  }
 
-export default Test;
+export default Post;

@@ -1,7 +1,7 @@
 
 
 import './App.css'
-import Test from './components/test'
+import Post from './components/test'
 
 function App() {
   
@@ -9,7 +9,12 @@ function App() {
   return (
     <>
       <p>Hello World</p>
-      <Test />
+      <Post postdata={{ username: 'John', content: 'Hello World', likes: 10, isVerified: true }} />
+      <Post postdata={{ username: 'Jane', content: 'Hello World', likes: 10, isVerified: true }} />
+      <Post postdata={{ username: 'Jim', content: 'Hello World', likes: 10, isVerified: true }} />
+      <Post postdata={{ username: 'Jill', content: 'Hello World', likes: 10, isVerified: true }} />
+      <Post postdata={{ username: 'Jack', content: 'Hello World', likes: 10, isVerified: true }} />
+      <Post postdata={{ username: 'Jill', content: 'Hello World', likes: 10, isVerified: true }} />
     </>
   )
 }

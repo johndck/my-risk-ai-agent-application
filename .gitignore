@@ -118,3 +118,14 @@ out/
 *.lib
 *.dll
 *.exe
+
+
+# Screenshot files (anywhere)
+*.png
+*.jpg
+*.jpeg
+*.webp
+*.gif
+# macOS screenshot naming pattern
+Screenshot*.png
+Screen Shot*.png

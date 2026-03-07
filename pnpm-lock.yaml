@@ -18,8 +18,8 @@ importers:
         specifier: ^1.41.0
         version: 1.43.0
       '@googleworkspace/cli':
-        specifier: ^0.5.0
-        version: 0.5.0
+        specifier: ^0.8.0
+        version: 0.8.0
       ai:
         specifier: ^6.0.97
         version: 6.0.105(zod@4.3.6)
@@ -81,8 +81,8 @@ packages:
       '@modelcontextprotocol/sdk':
         optional: true
 
-  '@googleworkspace/cli@0.5.0':
-    resolution: {integrity: sha512-aB+JI9DkR9tRDy94rshnaeBPbhKXUzcA0XrnnVWgSZsyDP+2kg9fUMVSu0HXb/g8oh/Dhn7jr/CP1bTxe/WVuw==}
+  '@googleworkspace/cli@0.8.0':
+    resolution: {integrity: sha512-KjvIADIjGChlM/tAOUO78gE2f7E0z/8VwcW8QYGvqFjuCtNko/PA/V59yt+IzauYhPpIbD32t/dOlDZQtPL/TA==}
     engines: {node: '>=14', npm: '>=6'}
     hasBin: true
 
@@ -640,7 +640,7 @@ snapshots:
       - supports-color
       - utf-8-validate
 
-  '@googleworkspace/cli@0.5.0':
+  '@googleworkspace/cli@0.8.0':
     dependencies:
       axios: 1.13.6
       axios-proxy-builder: 0.1.2

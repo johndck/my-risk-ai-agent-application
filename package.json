@@ -22,7 +22,7 @@
     "@ai-sdk/google": "^3.0.30",
     "@ai-sdk/xai": "^3.0.57",
     "@google/genai": "^1.41.0",
-    "@googleworkspace/cli": "^0.5.0",
+    "@googleworkspace/cli": "^0.8.0",
     "ai": "^6.0.97",
     "dotenv": "^17.3.0",
     "pnpm": "^10.30.3",

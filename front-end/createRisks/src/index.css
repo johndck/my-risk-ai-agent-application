@@ -1,17 +1,21 @@
+/* index.css */
 @import "tailwindcss";
 
-
-@utility no-scrollbar {
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-  &::-webkit-scrollbar {
-    display: none;
-  }
-}
-
-html, body, #root {
+@layer base {
+  html {
+    /* Standard CSS properties that Tailwind v4 maps to */
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+    
+    /* Your existing resets */
     margin: 0;
     padding: 0;
-    width: 100%;
-    min-height: 100%;
+   
   }
+
+  body, #root {
+    margin: 0;
+    padding: 0;
+   
+  }
+}

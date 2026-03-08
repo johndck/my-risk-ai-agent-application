@@ -2,16 +2,29 @@ import Section from './section.jsx'
 
 
 
-function MainWrapper (){
+function MainWrapper() {
     return (
-        <div className="h-screen overflow-y-auto snap-y snap-mandatory no-scrollbar border border-red-500" >
-           
-
-            <Section title="Section landing" bgColor="bg-red-500" />
-            <Section title="Section 2" bgColor="bg-blue-500" />
-            <Section title="Section 3" bgColor="bg-green-500" />
-        </div>
-    )
-}
+        <main className="bg-white">
+          {/* Section 1: Very Tall (Simulating a long article) */}
+          <section className="snap-start h-[1200px] bg-slate-100 p-10 border-b border-slate-300">
+            <h2 className="text-3xl font-bold">Section 1 (Fixed 1200px)</h2>
+            <p className="mt-4">Scroll down to find the start of Section 2...</p>
+          </section>
+    
+          {/* Section 2: Fixed height */}
+          <section className="snap-start h-[800px] bg-blue-100 p-10 border-b border-blue-300">
+            <h2 className="text-3xl font-bold">Section 2 (Fixed 800px)</h2>
+            <p className="mt-4">I should "click" into place when my top hits the browser top.</p>
+          </section>
+    
+          {/* Section 3: Fixed height */}
+          <section className="snap-start h-[1400px] bg-green-100 p-10">
+            <h2 className="text-3xl font-bold">Section 3 (Fixed 1000px)</h2>
+            <p className="mt-4">Final snap point.</p>
+          </section>
+        </main>
+      );
+    }
+    
 
 export default MainWrapper;

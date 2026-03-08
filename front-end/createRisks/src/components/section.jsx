@@ -1,8 +1,16 @@
+
 // Section.jsx
-function Section({ title, bgColor }) {
+
+function Section({ children, bgColor }) {
     return (
-      <section className={`h-screen w-full flex items-center justify-center snap-start ${bgColor}`}>
-        <h2 className="text-5xl font-black text-white">{title}</h2>
+      /* snap-start: The anchor point for the scroll engine.
+         min-h-[200px]: A safety net so empty sections don't disappear.
+         py-20: Vertical padding creates the "breathing room" around your content.
+      */
+      <section className={`w-full snap-start py-20 px-10 ${bgColor} min-h-[50vh]`}>
+        <div className="max-w-4xl mx-auto">
+          {children}
+        </div>
       </section>
     );
   }

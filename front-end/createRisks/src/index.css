@@ -2,7 +2,7 @@
 @import "tailwindcss";
 
 @layer base {
-  html {
+  html, body {
     /* Standard CSS properties that Tailwind v4 maps to */
     scroll-snap-type: y mandatory;
     scroll-behavior: smooth;
@@ -13,7 +13,7 @@
    
   }
 
-  body, #root {
+   #root {
     margin: 0;
     padding: 0;
    

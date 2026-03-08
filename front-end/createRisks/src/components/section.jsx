@@ -1,18 +1,21 @@
 
 // Section.jsx
 
-function Section({ children, bgColor }) {
+function Section({ title, children, className = '' }) {
     return (
-      /* snap-start: The anchor point for the scroll engine.
-         min-h-[200px]: A safety net so empty sections don't disappear.
-         py-20: Vertical padding creates the "breathing room" around your content.
-      */
-      <section className={`w-full snap-start py-20 px-10 ${bgColor} min-h-[50vh]`}>
-        <div className="max-w-4xl mx-auto">
-          {children}
-        </div>
+      <section
+        className={`snap-start h-[1200px] bg-slate-100 p-10 border-b border-slate-300 ${className}`}
+      >
+        <h2 className="text-3xl font-bold">{title}</h2>
+        {children}
       </section>
     );
   }
   
   export default Section;
+
+
+
+
+
+ 

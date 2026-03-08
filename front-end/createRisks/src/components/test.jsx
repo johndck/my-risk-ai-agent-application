@@ -5,6 +5,18 @@ import Section from './section.jsx'
 function MainWrapper() {
     return (
         <main className="bg-white">
+
+
+
+        
+
+    {/* Using the section component */}
+
+        <Section title="Section reusing component (Fixed 1200px)">
+                <p className="mt-4">Scroll down to find the start of Section 2...</p>
+        </Section>
+
+
           {/* Section 1: Very Tall (Simulating a long article) */}
           <section className="snap-start h-[1200px] bg-slate-100 p-10 border-b border-slate-300">
             <h2 className="text-3xl font-bold">Section 1 (Fixed 1200px)</h2>
@@ -37,11 +49,9 @@ function MainWrapper() {
           </section>
 
 
+        
 
-
-
-
-
+          {/* Section 6: Fixed height */}
 
         </main>
       );

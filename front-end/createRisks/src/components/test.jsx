@@ -22,6 +22,27 @@ function MainWrapper() {
             <h2 className="text-3xl font-bold">Section 3 (Fixed 1000px)</h2>
             <p className="mt-4">Final snap point.</p>
           </section>
+
+          {/* Section 4: Fixed height */}
+          <section className="snap-start h-[1400px] bg-slate-100 p-10">
+            <h2 className="text-3xl font-bold">Section 4(Fixed 1000px)</h2>
+            <p className="mt-4">Final snap point.</p>
+          </section>
+
+
+          {/* Section 5: Fixed height */}
+          <section className="snap-start h-[1400px] bg-blue-100 p-10">
+            <h2 className="text-3xl font-bold">Section 5 (Fixed 1000px)</h2>
+            <p className="mt-4">Final snap point.</p>
+          </section>
+
+
+
+
+
+
+
+
         </main>
       );
     }

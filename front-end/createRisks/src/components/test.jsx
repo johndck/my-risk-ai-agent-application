@@ -4,7 +4,7 @@ import Section from './section.jsx'
 
 function MainWrapper() {
     return (
-        <main className="bg-white">
+        <main className="h-screen overflow-y-auto snap-y snap-mandatory bg-white">
 
 
 
@@ -24,34 +24,32 @@ function MainWrapper() {
           </section>
     
           {/* Section 2: Fixed height */}
-          <section className="snap-start h-[800px] bg-blue-100 p-10 border-b border-blue-300">
+          <section className="snap-start snap-always h-[800px] bg-blue-100 p-10 border-b border-blue-300">
             <h2 className="text-3xl font-bold">Section 2 (Fixed 800px)</h2>
             <p className="mt-4">I should "click" into place when my top hits the browser top.</p>
           </section>
     
           {/* Section 3: Fixed height */}
-          <section className="snap-start h-[1400px] bg-green-100 p-10">
+          <section className="snap-start snap-always h-[1400px] bg-green-100 p-10">
             <h2 className="text-3xl font-bold">Section 3 (Fixed 1000px)</h2>
             <p className="mt-4">Final snap point.</p>
           </section>
 
           {/* Section 4: Fixed height */}
-          <section className="snap-start h-[1400px] bg-slate-100 p-10">
+          <section className="snap-start snap-always h-[1400px] bg-slate-100 p-10">
             <h2 className="text-3xl font-bold">Section 4(Fixed 1000px)</h2>
             <p className="mt-4">Final snap point.</p>
           </section>
 
 
           {/* Section 5: Fixed height */}
-          <section className="snap-start h-[1400px] bg-blue-100 p-10">
+          <section className="snap-start snap-always h-[1400px] bg-blue-100 p-10">
             <h2 className="text-3xl font-bold">Section 5 (Fixed 1000px)</h2>
             <p className="mt-4">Final snap point.</p>
           </section>
 
 
-        
-
-          {/* Section 6: Fixed height */}
+    
 
         </main>
       );

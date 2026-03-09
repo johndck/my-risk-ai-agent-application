@@ -2,20 +2,14 @@
 @import "tailwindcss";
 
 @layer base {
-  html, body {
-    /* Standard CSS properties that Tailwind v4 maps to */
-    scroll-snap-type: y mandatory;
-    scroll-behavior: smooth;
-    
-    /* Your existing resets */
+  /* This just makes sure the 'stage' is the full height of the browser */
+  html, body, #root {
+    height: 100%;
     margin: 0;
-    padding: 0;
-   
-  }
-
-   #root {
-    margin: 0;
-    padding: 0;
-   
   }
 }
+
+
+  
+
+ 

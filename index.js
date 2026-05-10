@@ -30,7 +30,11 @@ async function main() {
 const today = new Date().toISOString().split('T')[0];
 const finalInstructions = agentInstructions.replace('{{TODAY_DATE}}', today);
 
-const promptInput = "if technology is continued to be viewed as an after-thought then we will continue to work in silos and ineffectively results in re-work and delays";
+const promptInput = "If we do not define our tests accurated for the inscope systems then the results we need to deliver will not be evidenced by a robust set of test results and we won't be able to confidently say our tech for 7WFC is ready for go-live.";
+
+
+
+
 
 
 const modelsToCompare = [
